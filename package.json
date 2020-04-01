@@ -1,0 +1,26 @@
+{
+  "name": "zbar-qr",
+  "version": "1.0.1",
+  "description": "for qrcode scan by zbar lib",
+  "main": "dist/zbar.js",
+  "directories": {},
+  "scripts": {
+    "build": "docker-compose run --rm build",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josudoey/js-zbar-qr.git"
+  },
+  "author": "Joey Fang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josudoey/js-zbar-qr/issues"
+  },
+  "homepage": "https://github.com/josudoey/js-zbar-qr#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^25.2.4",
+    "pngjs": "^3.4.0"
+  }
+}
