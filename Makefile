@@ -1,20 +1,30 @@
 RUN:=umask 0022;
-ZBar:=$(RUN) cd ZBar;
+ZBar:=cd ZBar;
 
 .PHONY: build
-build: ./ZBar/zbar/.libs/libzbar.a
-	$(RUN) mkdir -p dist
-	$(ZBar) emcc -O1 -I`pwd`/include \
- 		../emcc/main.c \
-		./zbar/.libs/libzbar.a \
-		--js-library ../emcc/library.js \
-		--pre-js ../emcc/pre.js \
-		--post-js ../emcc/post.js \
-		-s ENVIRONMENT=web \
-		--closure 1 \
+build: dist/zbar.js
+
+dist/zbar.js: dist/zbar.emcc.js node_modules
+	npm run build:zbar
+
+dist/zbar.emcc.js: ZBar/zbar/.libs/libzbar.a
+	mkdir -p dist
+	emcc \
+		-O1 \
+		-IZbar/include \
+		-s ALLOW_MEMORY_GROWTH=1 \
+		-s 'EXTRA_EXPORTED_RUNTIME_METHODS=["ccall"]' \
 		-s WASM=0 \
-		-s MODULARIZE=1 \
-		-o ../dist/zbar.js
+		--no-heap-copy \
+		--closure 0 \
+		-s BINARYEN_ASYNC_COMPILATION=0 \
+		-s MODULARIZE=0 \
+		./Zbar/zbar/.libs/libzbar.a \
+		--js-library ./emcc/library.js \
+		--pre-js ./emcc/pre.js \
+		--post-js ./emcc/post.js \
+		./emcc/main.c \
+		-o ./dist/zbar.emcc.js
 
 ZBar/zbar/.libs/libzbar.a: ZBar/Makefile
 	$(ZBar) emmake make
@@ -27,4 +37,7 @@ ZBar/configure: ZBar
 	$(ZBar) autoreconf -i
 
 ZBar:
-	$(RUN) git clone https://github.com/ZBar/ZBar ZBar
+	git clone https://github.com/ZBar/ZBar ZBar
+
+node_modules:
+	npm i

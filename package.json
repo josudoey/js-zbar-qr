@@ -1,11 +1,12 @@
 {
   "name": "zbar-qr",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "for qrcode scan by zbar lib",
   "main": "dist/zbar.js",
   "directories": {},
   "scripts": {
     "build": "docker-compose run --rm build",
+    "build:zbar": "NODE_ENV=production webpack --config webpack/zbar",
     "test": "jest"
   },
   "repository": {
@@ -18,8 +19,17 @@
     "url": "https://github.com/josudoey/js-zbar-qr/issues"
   },
   "homepage": "https://github.com/josudoey/js-zbar-qr#readme",
-  "dependencies": {},
+  "dependencies": {
+    "webpack": "^5.15.0",
+    "webpack-cli": "^4.3.1"
+  },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.17.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "jest": "^25.2.4",
     "pngjs": "^3.4.0"
   }

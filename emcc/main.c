@@ -1,31 +1,30 @@
 // Simple application to bind zbar with JavaScript/emscripten
 // Copyright (C) 2013 Yury Delendik
 #include <stdlib.h>
+#include <stdio.h>
 #include <zbar.h>
+#include <emscripten.h>
 
-extern int js_get_width();
-extern int js_get_height();
-extern int js_set_data(unsigned char *data, size_t len);
 extern void js_emit_type(const char *symbolName, const char *addonName);
 extern void js_emit_data(const char *data);
 extern void js_emit_loc(int x, int y);
 
+zbar_processor_t *processor;
 int main(int argc, const char *argv[])
 {
-    zbar_processor_t *processor = zbar_processor_create(0);
+    processor = zbar_processor_create(0);
     zbar_processor_init(processor, NULL, 0);
+    return 0;
+}
+
+EMSCRIPTEN_KEEPALIVE
+int Process(const void *data, size_t len, int width, int height)
+{
     zbar_image_t *zimage = zbar_image_create();
     zbar_image_set_format(zimage, *(unsigned long *)"Y800");
-    int width = js_get_width();
-    int height = js_get_height();
     zbar_image_set_size(zimage, width, height);
-
     size_t size = width * height;
-    unsigned char *data = malloc(size);
     zbar_image_set_data(zimage, data, size, zbar_image_free_data);
-
-    js_set_data(data, size);
-
     zbar_process_image(processor, zimage);
 
     // ref https://github.com/ZBar/ZBar/blob/master/examples/processor.c
