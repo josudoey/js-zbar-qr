@@ -2,13 +2,11 @@
 import fs from 'fs'
 import path from 'path'
 import { PNG } from 'pngjs'
-import zbarProcess from '../dist/zbar'
+import zbarProcess from 'zbar-qr'
 
 const imgData = PNG.sync.read(
   fs.readFileSync(path.join(__dirname, '../', 'example', 'test.png'))
 )
-
-
 
 describe('zbar', () => {
   it('process', function () {

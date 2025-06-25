@@ -11,6 +11,12 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3
         version: 3.3.1
+      '@types/jest':
+        specifier: ^30.0.0
+        version: 30.0.0
+      '@types/node':
+        specifier: ^24.0.4
+        version: 24.0.4
       eslint:
         specifier: ^9.18.0
         version: 9.29.0
@@ -29,37 +35,33 @@ importers:
       eslint-plugin-promise:
         specifier: ^7.2.1
         version: 7.2.1(eslint@9.29.0)
-      prettier-config-standard:
-        specifier: ^7.0.0
-        version: 7.0.0(prettier@3.6.0)
-
-  packages/zbar-qr:
-    dependencies:
-      webpack:
-        specifier: ^5.59.1
-        version: 5.99.9(webpack-cli@4.10.0)
-      webpack-cli:
-        specifier: ^4.9.1
-        version: 4.10.0(webpack@5.99.9)
-    devDependencies:
-      '@types/jest':
-        specifier: ^30.0.0
-        version: 30.0.0
-      '@types/node':
-        specifier: ^24.0.4
-        version: 24.0.4
       jest:
         specifier: ^27.5.1
         version: 27.5.1
       pngjs:
         specifier: ^6.0.0
         version: 6.0.0
+      prettier-config-standard:
+        specifier: ^7.0.0
+        version: 7.0.0(prettier@3.6.0)
       ts-jest:
         specifier: ^29.4.0
         version: 29.4.0(@babel/core@7.27.4)(@jest/types@30.0.1)(jest-util@30.0.2)(jest@27.5.1)(typescript@5.8.3)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
+      zbar-qr:
+        specifier: link:packages/zbar-qr
+        version: link:packages/zbar-qr
+
+  packages/zbar-qr:
+    devDependencies:
+      webpack:
+        specifier: ^5.59.1
+        version: 5.99.9(webpack-cli@4.10.0)
+      webpack-cli:
+        specifier: ^4.9.1
+        version: 4.10.0(webpack@5.99.9)
 
 packages:
 

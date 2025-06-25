@@ -7,20 +7,28 @@
   "main": "index.js",
   "prettier": "prettier-config-standard",
   "scripts": {
+    "ts-check": "tsc --noEmit",
     "build": "npm -C ./packages/zbar-qr run build",
-    "test": "npm -C ./packages/zbar-qr run test"
+    "test": "jest"
   },
   "keywords": [],
   "author": "Joey Fang",
   "license": "ISC",
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.4",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-n": "^17.19.0",
     "eslint-plugin-promise": "^7.2.1",
-    "prettier-config-standard": "^7.0.0"
+    "jest": "^27.5.1",
+    "pngjs": "^6.0.0",
+    "prettier-config-standard": "^7.0.0",
+    "ts-jest": "^29.4.0",
+    "typescript": "^5.8.3",
+    "zbar-qr": "workspace:*"
   }
 }
