@@ -2,10 +2,7 @@ RUN:=umask 0022;
 ZBar:=cd ZBar;
 
 .PHONY: build
-build: dist/zbar.js
-
-dist/zbar.js: dist/zbar.emcc.js node_modules
-	npm run build:zbar
+build: dist/zbar.emcc.js
 
 dist/zbar.emcc.js: ZBar/zbar/.libs/libzbar.a
 	mkdir -p dist
@@ -13,7 +10,8 @@ dist/zbar.emcc.js: ZBar/zbar/.libs/libzbar.a
 		-O1 \
 		-IZbar/include \
 		-s ALLOW_MEMORY_GROWTH=1 \
-		-s 'EXTRA_EXPORTED_RUNTIME_METHODS=["ccall"]' \
+		-s 'EXPORTED_RUNTIME_METHODS=["ccall"]' \
+		-s 'EXPORTED_FUNCTIONS=["_main","_malloc","_free"]' \
 		-s WASM=0 \
 		--no-heap-copy \
 		--closure 0 \
@@ -38,6 +36,3 @@ ZBar/configure: ZBar
 
 ZBar:
 	git clone https://github.com/ZBar/ZBar ZBar
-
-node_modules:
-	npm i

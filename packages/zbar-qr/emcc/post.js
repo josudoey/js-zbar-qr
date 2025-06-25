@@ -16,7 +16,7 @@
       grey[j] = (d[i] * 66 + d[i + 1] * 129 + d[i + 2] * 25 + 4096) >> 8
     }
     const data = Module._malloc(d.length)
-    Module.HEAPU8.set(grey, data);
+    HEAPU8.set(grey, data);
     Module.ccall('Process', 'number',
       ['number', 'number', 'number', 'number'],
       [data, d.length, img.width, img.height]
