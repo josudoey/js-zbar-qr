@@ -4,6 +4,9 @@
   "description": "for qrcode scan by zbar lib",
   "main": "dist/zbar.js",
   "directories": {},
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "build": "npm run emcc:zbar&&npm run webpack:zbar",
     "emcc:zbar": "docker compose run --rm build",
