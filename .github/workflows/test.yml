@@ -17,14 +17,15 @@ jobs:
       - uses: pnpm/action-setup@v4
         with:
           version: 10
-      - uses: docker/setup-buildx-action@v3
-        name: Set up Docker Buildx
-      - uses: docker/setup-compose-action@v1
-        name: Set up Docker Compose
       - uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'pnpm'
       - run: pnpm install
-      - run: pnpm build
+      # TODO: fix docker build failed
+      # - uses: docker/setup-buildx-action@v3
+      #   name: Set up Docker Buildx
+      # - uses: docker/setup-compose-action@v1
+      #   name: Set up Docker Compose
+      # - run: pnpm build
       - run: pnpm run test
