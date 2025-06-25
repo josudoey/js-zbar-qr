@@ -30,9 +30,9 @@ ZBar/zbar/.libs/libzbar.a: ZBar/Makefile
 ZBar/Makefile: ZBar/configure
 	$(ZBar) emconfigure ./configure --enable-codes=qrcode --without-x --without-jpeg --without-imagemagick --without-npapi --without-gtk --without-python --without-qt --without-xshm --disable-video --disable-pthread
 
-ZBar/configure: ZBar
+ZBar/configure: ZBar/configure.ac
 	$(ZBar) sed -i "s/ -Werror//" ./configure.ac
 	$(ZBar) autoreconf -i
 
-ZBar:
+ZBar/configure.ac:
 	git clone https://github.com/ZBar/ZBar ZBar
