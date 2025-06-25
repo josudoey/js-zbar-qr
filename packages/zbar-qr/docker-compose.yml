@@ -1,5 +1,3 @@
-version: "3.4"
-
 x-common-build: &common-build
   image: zbar-builder:latest
   build:
@@ -11,7 +9,7 @@ x-common-build: &common-build
 services:
   sh:
     <<: *common-build
-    command: ["bash"]
+    command: ['bash']
   build:
     <<: *common-build
-    command: ["make", "build"]
+    command: ['make', 'build']
