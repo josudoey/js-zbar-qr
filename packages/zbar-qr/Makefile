@@ -6,6 +6,7 @@ build: dist/zbar.emcc.js
 
 dist/zbar.emcc.js: ZBar/zbar/.libs/libzbar.a
 	mkdir -p dist
+	ls -lha ZBar/zbar/.libs
 	emcc \
 		-O1 \
 		-IZbar/include \
