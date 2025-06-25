@@ -6,6 +6,7 @@ build: dist/zbar.emcc.js
 
 dist/zbar.emcc.js: ZBar/zbar/.libs/libzbar.a
 	mkdir -p dist
+	ls -lha ZBar/zbar/.libs
 	emcc \
 		-O1 \
 		-IZbar/include \
@@ -17,7 +18,7 @@ dist/zbar.emcc.js: ZBar/zbar/.libs/libzbar.a
 		--closure 0 \
 		-s BINARYEN_ASYNC_COMPILATION=0 \
 		-s MODULARIZE=0 \
-		./Zbar/zbar/.libs/libzbar.a \
+		"./Zbar/zbar/.libs/libzbar.a" \
 		--js-library ./emcc/library.js \
 		--pre-js ./emcc/pre.js \
 		--post-js ./emcc/post.js \
