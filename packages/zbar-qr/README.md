@@ -1,17 +1,13 @@
-# js-zbar-qr
+# zbar-qr
 
 [![Build Status](https://github.com/josudoey/js-zbar-qr/actions/workflows/test.yml/badge.svg)](https://github.com/josudoey/js-zbar-qr/tree/refs/heads/master)
 
-> A lightweight JavaScript library for QR code scanning based on zbar, supporting both Node.js and browser environments.
+> A lightweight JavaScript library for QR code scanning based on zbar, supporting both Node.js and browser environments. [online-demo](https://josudoey.github.io/webtool-zbar-qr/)
 
 ## Features
 
 - 🚀 Lightweight and dependency-free
 - 🛠️ Usable in Node.js and web environments
-
-## Online Demo
-
-[https://josudoey.github.io/webtool-zbar-qr/](https://josudoey.github.io/webtool-zbar-qr/)
 
 ## Installation
 
