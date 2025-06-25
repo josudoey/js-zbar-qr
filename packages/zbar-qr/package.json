@@ -7,7 +7,7 @@
   "scripts": {
     "ts-check": "tsc --noEmit",
     "build": "npm run emcc:zbar&&npm run webpack:zbar",
-    "emcc:zbar": "docker-compose run --rm build",
+    "emcc:zbar": "docker compose run --rm build",
     "webpack:zbar": "NODE_ENV=production webpack --config webpack/config.js",
     "test": "jest"
   },

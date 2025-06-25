@@ -1,0 +1,30 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: test
+    # see https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
+    # see https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token
+    # see https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#check-latest-version
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: docker/setup-buildx-action@v3
+        name: Set up Docker Buildx
+      - uses: docker/setup-compose-action@v1
+        name: Set up Docker Compose
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm build
+      - run: pnpm run test

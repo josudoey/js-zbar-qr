@@ -6,11 +6,13 @@
   "description": "",
   "main": "index.js",
   "prettier": "prettier-config-standard",
-  "scripts": {},
+  "scripts": {
+    "build": "npm -C ./packages/zbar-qr run build",
+    "test": "npm -C ./packages/zbar-qr run test"
+  },
   "keywords": [],
   "author": "Joey Fang",
   "license": "ISC",
-  "packageManager": "pnpm@10.6.5",
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "eslint": "^9.18.0",
