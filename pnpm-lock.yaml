@@ -51,7 +51,7 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
       zbar-qr:
-        specifier: link:packages/zbar-qr
+        specifier: workspace:*
         version: link:packages/zbar-qr
 
   packages/zbar-qr:
