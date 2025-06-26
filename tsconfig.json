@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "allowJs": true
+    "esModuleInterop": true
   }
 }
