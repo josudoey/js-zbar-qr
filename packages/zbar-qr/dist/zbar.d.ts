@@ -1,7 +1,7 @@
 export interface ImageData {
     width: number
     height: number
-    data: ArrayBufferLike[]
+    data: Uint8ClampedArray | Buffer | number[]
 }
 
 export interface ZbarProcessResult {

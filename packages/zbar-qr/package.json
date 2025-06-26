@@ -1,6 +1,6 @@
 {
   "name": "zbar-qr",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "for qrcode scan by zbar lib",
   "main": "dist/zbar.js",
   "directories": {},
