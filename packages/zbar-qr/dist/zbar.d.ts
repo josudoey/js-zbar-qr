@@ -1,3 +1,8 @@
+export interface Location {
+    x: number
+    y: number
+}
+
 export interface ImageData {
     width: number
     height: number
